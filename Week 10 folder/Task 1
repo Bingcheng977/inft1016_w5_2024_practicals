@@ -8,4 +8,13 @@
   <p id="box"></p>
 </body>
 </html>
-<!-- When clicking on "Click me", an alert with the message "hey" will popo up on the screen. -->
+<html>
+<head>
+  <title>Week 10</title>
+</head>
+<body>
+  <h1>JavaScript Demo</h1>
+  <a href="#">Click me</a>
+  <p id="box"></p>
+</body>
+</html>
