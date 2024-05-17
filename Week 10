@@ -8,3 +8,4 @@
   <p id="box"></p>
 </body>
 </html>
+<!-- When clicking on "Click me", an alert with the message "hey" will popo up on the screen. -->
