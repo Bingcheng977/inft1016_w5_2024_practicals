@@ -17,5 +17,7 @@
     <h1>JavaScript Demo</h1>
     <a href="#" onclick="countClicks(this);">Click me</a>
     <p id="boxy"></p>
+    <title>week 10</title>
+    <img src="http://www.outgrabe.net/cat01.jpg" onmouseover="this.src='http://www.outgrabe.net/cat02.jpg'"
 </body>
 </html>
