@@ -1,64 +1,69 @@
 <!DOCTYPE html>
-<html>
     <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="styles.css">
-</style>
-<title>My First Year in UNISA</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="styles.css">
+        <title>My First Year in UNISA</title>
     </head>
-    <body>
+    <body onload="updatePage()">
         <header>
-<h1>Welcome to My First Year in UNISA</h1>
-<nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li> <button onclick="toggleTheme()">Toggle Theme</button></li>
-    </ul>
-</nav>
+            <h1 id="greeting">Welcome to My First Year in UNISA</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="courses.html">Courses</a></li>
+                    <li><button onclick="toggleTheme()">Toggle Theme</button></li>
+                </ul>
+            </nav>
         </header>
+        <p id="date-time"></p>
+        <h2 class="home">Exciting study experience in UNISA</h2>
+        <img src="https://www.bansarchina.com/wp-content/uploads/2021/02/Figure-12-China-to-Australia.jpg" alt="Map from China to Australia">
+        <p>In 2024, I start my new uni life in the University of South Australia.</p>
+        <p>I travelled 8,000 kilometres to Australia for what was destined to be an extraordinary journey.</p>
+        <p>I cannot wait to show you the study life in South Australia!</p>
+        
+        <form method="GET" action="">
+            <label for="name">Enter your name: </label>
+            <input type="text" id="name" name="name">
+            <button type="submit">Submit</button>
+        </form>
 
-        <h2 class="home">Exciting study experience in UNISA </h2>
-        <img src="https://www.bansarchina.com/wp-content/uploads/2021/02/Figure-12-China-to-Australia.jpg">
-        <p>In 2024, I start my new uni life in the university of South Australia</p>
-        <p>I travelled 8,000 kilometres to Australia for what was destined to be an extraordinary journey</p> 
-        <p>I can not wait to show you the study life in South Australia!</p>
-        <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.flickr.com%2Fphotos%2Frexness%2F5104236696&psig=AOvVaw093a-JeEBGTYI8Pm93oRSN&ust=1718526691724000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLD3lvqY3YYDFQAAAAAdAAAAABAK">
-        <botton>another campus</botton>
+        <a href="https://www.flickr.com/photos/rexness/5104236696">
+            <button>Another Campus</button>
         </a>
         <p>"University of South Australia, North Terrace, Adelaide, South Australia" by Rexness is licensed under CC BY-SA 2.0.</p>
-        <p>To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse.</p>
-        <a href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FFile%3ALogo-unisa-portrait-blue.svg&psig=AOvVaw2CTs3P0syMXpKCjvKIb2HI&ust=1718527421719000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPiIh9ab3YYDFQAAAAAdAAAAABAE">
-        <botton>Logo of UNISA</botton>
+        <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0</a>.</p>
+
+        <a href="https://en.wikipedia.org/wiki/File:Logo-unisa-portrait-blue.svg">
+            <button>Logo of UNISA</button>
         </a>
         <p>"Logo-unisa-portrait-blue.svg" by University of South Australia is licensed under CC BY-SA 2.0.</p>
-        <p>To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse.</p>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-            const toggleButton = document.getElementById('toggleColor');
-            const rootElement = document.documentElement;
+        <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0</a>.</p>
 
-            toggleButton.addEventListener('click', () => {
+        <script>
+            function toggleTheme() {
+                const rootElement = document.documentElement;
                 const currentTheme = rootElement.getAttribute('data-theme');
+
                 if (currentTheme === 'dark') {
                     rootElement.setAttribute('data-theme', 'light');
                 } else {
                     rootElement.setAttribute('data-theme', 'dark');
                 }
-            });
-        });
-        function toggleTheme() {
-            const rootElement = document.documentElement;
-            const currentTheme = rootElement.getAttribute('data-theme');
-
-            if (currentTheme === 'dark') {
-                rootElement.setAttribute('data-theme', 'light');
-            } else {
-                rootElement.setAttribute('data-theme', 'dark');
             }
-        }
+
+            function updatePage() {
+                updateHeading();
+                displayDateTime();
+            }
+
+
+            function displayDateTime() {
+                const now = new Date();
+                const dateTimeString = now.toLocaleString();
+                document.getElementById('date-time').textContent = `Current date and time: ${dateTimeString}`;
+            }
         </script>
-        
     </body>
 </html>
