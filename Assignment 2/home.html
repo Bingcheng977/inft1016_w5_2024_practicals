@@ -14,6 +14,7 @@
     <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="courses.html">Courses</a></li>
+        <li> <button onclick="toggleTheme()">Toggle Theme</button></li>
     </ul>
 </nav>
         </header>
@@ -33,5 +34,31 @@
         </a>
         <p>"Logo-unisa-portrait-blue.svg" by University of South Australia is licensed under CC BY-SA 2.0.</p>
         <p>To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse.</p>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+            const toggleButton = document.getElementById('toggleColor');
+            const rootElement = document.documentElement;
+
+            toggleButton.addEventListener('click', () => {
+                const currentTheme = rootElement.getAttribute('data-theme');
+                if (currentTheme === 'dark') {
+                    rootElement.setAttribute('data-theme', 'light');
+                } else {
+                    rootElement.setAttribute('data-theme', 'dark');
+                }
+            });
+        });
+        function toggleTheme() {
+            const rootElement = document.documentElement;
+            const currentTheme = rootElement.getAttribute('data-theme');
+
+            if (currentTheme === 'dark') {
+                rootElement.setAttribute('data-theme', 'light');
+            } else {
+                rootElement.setAttribute('data-theme', 'dark');
+            }
+        }
+        </script>
+        
     </body>
 </html>
