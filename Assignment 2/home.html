@@ -1,79 +1,78 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles.css">
-        <title>My First Year in UNISA</title>
-    </head>
-    <body onload="updatePage()">
-        <header>
-            <h1 id="greeting">Welcome to My First Year in UNISA</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="courses.html">Courses</a></li>
-                    <li><button onclick="toggleTheme()">Toggle Theme</button></li>
-                </ul>
-            </nav>
-        </header>
-        
-        <p id="date-time"></p>
-        <h2 class="home">Exciting study experience in UNISA</h2>
-        <img src="https://www.bansarchina.com/wp-content/uploads/2021/02/Figure-12-China-to-Australia.jpg" alt="Map from China to Australia">
-        <p>In 2024, I start my new uni life in the University of South Australia.</p>
-        <p>I travelled 8,000 kilometres to Australia for what was destined to be an extraordinary journey.</p>
-        <p>I cannot wait to show you the study life in South Australia!</p>
-        
-        <form method="GET" action="">
-            <label for="name">Enter your name: </label>
-            <input type="text" id="name" name="name">
-            <button type="submit">Submit</button>
-        </form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display Date and Time</title>
+</head>
+<body onload="updatePage()">
+    <header>
+        <h1 id="greeting">Welcome to My First Year in UNISA</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><button onclick="toggleTheme()">Toggle Theme</button></li>
+            </ul>
+        </nav>
+    </header>
 
-        <a href="https://www.flickr.com/photos/rexness/5104236696">
-            <button>Another Campus</button>
-        </a>
-        <p>"University of South Australia, North Terrace, Adelaide, South Australia" by Rexness is licensed under CC BY-SA 2.0.</p>
-        <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0</a>.</p>
+    <h2 class="home">Exciting study experience in UNISA</h2>
+    <p id="date-time"></p> 
+    <img src="https://www.bansarchina.com/wp-content/uploads/2021/02/Figure-12-China-to-Australia.jpg" alt="Map from China to Australia">
+    <p>In 2024, I start my new uni life in the University of South Australia.</p>
+    <p>I travelled 8,000 kilometres to Australia for what was destined to be an extraordinary journey.</p>
+    <p>I cannot wait to show you the study life in South Australia!</p>
+    
+    <form method="GET" action="">
+        <label for="name">Enter your name: </label>
+        <input type="text" id="name" name="name">
+        <button type="submit">Submit</button>
+    </form>
 
-        <a href="https://en.wikipedia.org/wiki/File:Logo-unisa-portrait-blue.svg">
-            <button>Logo of UNISA</button>
-        </a>
-        <p>"Logo-unisa-portrait-blue.svg" by University of South Australia is licensed under CC BY-SA 2.0.</p>
-        <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0</a>.</p>
+    <a href="https://www.flickr.com/photos/rexness/5104236696">
+        <button>Another Campus</button>
+    </a>
+    <p>"University of South Australia, North Terrace, Adelaide, South Australia" by Rexness is licensed under CC BY-SA 2.0.</p>
+    <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0</a>.</p>
 
-        <script>
-            function toggleTheme() {
-                const rootElement = document.documentElement;
-                const currentTheme = rootElement.getAttribute('data-theme');
+    <a href="https://en.wikipedia.org/wiki/File:Logo-unisa-portrait-blue.svg">
+        <button>Logo of UNISA</button>
+    </a>
+    <p>"Logo-unisa-portrait-blue.svg" by University of South Australia is licensed under CC BY-SA 2.0.</p>
+    <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0</a>.</p>
 
-                if (currentTheme === 'dark') {
-                    rootElement.setAttribute('data-theme', 'light');
-                } else {
-                    rootElement.setAttribute('data-theme', 'dark');
-                }
+    <script>
+        function toggleTheme() {
+            const rootElement = document.documentElement;
+            const currentTheme = rootElement.getAttribute('data-theme');
+
+            if (currentTheme === 'dark') {
+                rootElement.setAttribute('data-theme', 'light');
+            } else {
+                rootElement.setAttribute('data-theme', 'dark');
             }
+        }
 
-            function updatePage() {
-                updateHeading();
-                displayDateTime();
+        function displayDateTime() {
+            const now = new Date();
+            const dateTimeString = now.toLocaleString();
+            document.getElementById('date-time').textContent = `Current date and time: ${dateTimeString}`;
+        }
+
+        function updateHeading() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const userName = urlParams.get('name');
+
+            if (userName) {
+                const greeting = document.getElementById('greeting');
+                greeting.textContent = `Hello, ${userName}`;
             }
+        }
 
-            function updateHeading() {
-                const urlParams = new URLSearchParams(window.location.search);
-                const userName = urlParams.get('name');
-
-                if (userName) {
-                    const greeting = document.getElementById('greeting');
-                    greeting.textContent = `Hello, ${userName}`;
-                }
-            }
-
-            function displayDateTime() {
-                const now = new Date();
-                const dateTimeString = now.toLocaleString();
-                document.getElementById('date-time').textContent = `Current date and time: ${dateTimeString}`;
-            }
-        </script>
-    </body>
+        function updatePage() {
+            displayDateTime();
+            updateHeading();
+        }
+    </script>
+</body>
 </html>
