@@ -53,10 +53,6 @@
                 }
             }
 
-            function updatePage() {
-                updateHeading();
-                displayDateTime();
-            }
 
             function updateHeading() {
                 const urlParams = new URLSearchParams(window.location.search);
@@ -73,6 +69,14 @@
                 const dateTimeString = now.toLocaleString();
                 document.getElementById('date-time').textContent = `Current date and time: ${dateTimeString}`;
             }
+            function updatePage() {
+
+            const storedTheme = localStorage.getItem('theme');
+            if (storedTheme) {
+                document.documentElement.setAttribute('data-theme', storedTheme);
+            }
+            displayDateTime();
+            updateHeading();
         </script>
     </body>
 </html>
