@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+</head>
+<body>
+    <div id="password-container">
+        <label for="password">Enter password to access To Do List:</label>
+        <input type="password" id="password">
+        <button onclick="checkPW()">Enter</button>
+    </div>
+
+    <div id="todo-container" style="display: none;">
+        <h1>To Do List</h1>
+
+        <div>
+            <label for="task">Add a task:</label>
+            <input type="text" id="task">
+            <button onclick="addT()">Add Task</button>
+        </div>
+
+        <ul id="task-list">
+        </ul>
+
+        <div>
+            <button onclick="saveT()">Save Tasks</button>
+            <button onclick="loadT()">Load Tasks</button>
+        </div>
+    </div>
+
+    <script>
+        function checkPW() {
+            const password = document.getElementById('password').value;
+            if (password === "8888") {
+                document.getElementById('password-container').style.display = 'none';
+                document.getElementById('todo-container').style.display = 'block';
+                loadTasks(); 
+                alert('Password is correct. Access granted!');
+            } else {
+                alert('Incorrect password. Please try again.');
+            }
+        }
+
+        function addT() {
+            const taskInput = document.getElementById('task');
+            const taskText = taskInput.value.trim();
+
+            if (taskText !== '') {
+                const taskList = document.getElementById('task-list');
+                const newTask = document.createElement('li');
+                newTask.textContent = taskText;
+                taskList.appendChild(newTask);
+                taskInput.value = ''; 
+            } else {
+                alert('Please enter a task.');
+            }
+        }
+
+        function removeT() {
+            const taskList = document.getElementById('task-list');
+            taskList.removeChild(taskList.lastElementChild);
+        }
+
+        function saveT() {
+            const taskList = document.getElementById('task-list');
+            localStorage.setItem('tasks', taskList.innerHTML);
+            alert('Tasks saved successfully.');
+        }
+
+        function loadT() {
+            const taskList = document.getElementById('task-list');
+            taskList.innerHTML = localStorage.getItem('tasks') || '';
+            alert('Tasks loaded successfully.');
+        }
+    </script>
+</body>
+</html>
