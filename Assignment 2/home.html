@@ -16,6 +16,7 @@
                 </ul>
             </nav>
         </header>
+        
         <p id="date-time"></p>
         <h2 class="home">Exciting study experience in UNISA</h2>
         <img src="https://www.bansarchina.com/wp-content/uploads/2021/02/Figure-12-China-to-Australia.jpg" alt="Map from China to Australia">
@@ -58,6 +59,15 @@
                 displayDateTime();
             }
 
+            function updateHeading() {
+                const urlParams = new URLSearchParams(window.location.search);
+                const userName = urlParams.get('name');
+
+                if (userName) {
+                    const greeting = document.getElementById('greeting');
+                    greeting.textContent = `Hello, ${userName}`;
+                }
+            }
 
             function displayDateTime() {
                 const now = new Date();
