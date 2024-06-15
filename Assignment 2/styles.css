@@ -82,6 +82,8 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
 :root{
     --primary-color: rgb(33,150,243);
     --secondary-color: rgb(100,181,246);

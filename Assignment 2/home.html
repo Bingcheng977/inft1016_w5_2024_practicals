@@ -6,6 +6,7 @@
         <title>My First Year in UNISA</title>
     </head>
     <body onload="updatePage()">
+        <!--header for navigating-->
         <header>
             <h1 id="greeting">Welcome to My First Year in UNISA</h1>
             <nav>
@@ -13,12 +14,19 @@
                     <li><a href="index.html">Home</a></li>
                     <li><a href="courses.html">Courses</a></li>
                     <li><a href="todolist.html">to do list</a></li>
+                    <!--button for switching the light and dark mode-->
                     <li><button onclick="toggleTheme()">Toggle Theme</button></li>
                 </ul>
             </nav>
         </header>
+
+        <!--place to display current date and time-->
         <p id="date-time"></p>
+
+        <!--content-->
         <h2 class="home">Exciting study experience in UNISA</h2>
+
+        <!--image for showing the distance between china and australia-->
         <img src="https://www.bansarchina.com/wp-content/uploads/2021/02/Figure-12-China-to-Australia.jpg" alt="Map from China to Australia">
         <p>In 2024, I start my new uni life in the University of South Australia.</p>
         <p>I travelled 8,000 kilometres to Australia for what was destined to be an extraordinary journey.</p>
@@ -29,20 +37,23 @@
             <input type="text" id="name" name="name">
             <button type="submit">Submit</button>
         </form>
-
+        <!--hyperlink and botton to view the picture of another campus-->
         <a href="https://www.flickr.com/photos/rexness/5104236696">
             <button>Another Campus</button>
         </a>
         <p>"University of South Australia, North Terrace, Adelaide, South Australia" by Rexness is licensed under CC BY-SA 2.0.</p>
         <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0</a>.</p>
 
+        <!--hyperlink and botton to view the picture of UNISA logo-->
         <a href="https://en.wikipedia.org/wiki/File:Logo-unisa-portrait-blue.svg">
             <button>Logo of UNISA</button>
         </a>
         <p>"Logo-unisa-portrait-blue.svg" by University of South Australia is licensed under CC BY-SA 2.0.</p>
         <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0</a>.</p>
 
+        <!--using Javascript to toggle the theme, update time and username and theme-->
         <script>
+        //function to switch between light and dark theme
         function toggleTheme() {
         const rootElement = document.documentElement;
         const currentTheme = rootElement.getAttribute('data-theme');
@@ -57,7 +68,7 @@
     }
 
            
-
+        //function to update welcome page
         function updateHeading() {
         const urlParams = new URLSearchParams(window.location.search);
         const userName = urlParams.get('name');
@@ -75,11 +86,14 @@
         }
     }
 
+    //function to display current time 
             function displayDateTime() {
                 const now = new Date();
                 const dateTimeString = now.toLocaleString();
                 document.getElementById('date-time').textContent = `Current date and time: ${dateTimeString}`;
             }
+
+            //function to update the theme and welcome page
             function updatePage() {
 
             const storedTheme = localStorage.getItem('theme');
@@ -90,5 +104,6 @@
             updateHeading();
         }
         </script>
+    <footer>   <p>©Copyright 20XX by <Inset your name> All rights reversed.</p>    </footer>  
     </body>
 </html>
