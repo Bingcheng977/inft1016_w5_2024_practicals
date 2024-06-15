@@ -42,7 +42,7 @@
         <p>To view a copy of this license, visit <a href="https://creativecommons.org/licenses/by-sa/2.0/?ref=openverse">CC BY-SA 2.0</a>.</p>
 
         <script>
-            function toggleTheme() {
+        function toggleTheme() {
         const rootElement = document.documentElement;
         const currentTheme = rootElement.getAttribute('data-theme');
 
@@ -59,14 +59,21 @@
 
         function updateHeading() {
         const urlParams = new URLSearchParams(window.location.search);
-        const userName = urlParams.get('name') || localStorage.getItem('user_name');
+        const userName = urlParams.get('name');
 
         if (userName) {
             const greeting = document.getElementById('greeting');
             greeting.textContent = `Hello, ${userName}`;
+            localStorage.setItem('user_name', userName);
+        } else {
+            const storedUserName = localStorage.getItem('user_name');
+            if (storedUserName) {
+                const greeting = document.getElementById('greeting');
+                greeting.textContent = `Hello, ${storedUserName}`;
+            }
         }
     }
-    
+
             function displayDateTime() {
                 const now = new Date();
                 const dateTimeString = now.toLocaleString();
